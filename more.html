@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site da Namorada</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            transition: background-color 2s;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            max-width: 800px;
+            height: 100vh;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        #love-btn {
+            padding: 10px 20px;
+            background-color: #ff005d;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+        .show-background {
+            background: linear-gradient(to right, #008000, #0000ff);
+        }
+        .compliment {
+            position: absolute;
+            color: #fff;
+            font-size: 18px;
+            white-space: nowrap;
+            text-shadow: 2px 2px 4px #000;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            color: #39ff14; 
+            transition: opacity 2s ease;
+        }
+        .hide-footer {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button id="love-btn" onclick="showLove()">Eu Te Amo</button>
+</div>
+
+<script>
+    const compliments = [
+        'Você é incrível!',
+        'Você é a razão do meu sorriso!',
+        'Seu amor ilumina meu dia!',
+        'Você é a pessoa mais especial!',
+        'Eu sou muito grato por ter você na minha vida!',
+        'Você é a minha inspiração!',
+        'Você torna tudo melhor!',
+        'Você é totoza',
+        'Quero me casar com você',
+        'Quero ter filhos com você',
+        'E quero te dar o universo'
+    ];
+
+    function showLove() {
+        document.body.classList.add('show-background');
+
+        for (let i = 0; i < 30; i++) {
+            const compliment = compliments[Math.floor(Math.random() * compliments.length)];
+            const complimentElement = document.createElement('div');
+            complimentElement.className = 'compliment';
+            complimentElement.textContent = compliment;
+            document.body.appendChild(complimentElement);
+
+            const xPos = Math.random() * window.innerWidth;
+            const yPos = Math.random() * window.innerHeight;
+            complimentElement.style.left = xPos + 'px';
+            complimentElement.style.top = yPos + 'px';
+
+            setTimeout(function () {
+                complimentElement.style.opacity = '1';
+            }, 100 * i);
+        }
+
+       
+        const footer = document.querySelector('footer');
+        footer.classList.add('hide-footer');
+    }
+</script>
+<footer>
+    <h1> Você é a coisa mais preciosa da minha vida, morro por você, me entrego a você, não tem mulher melhor e nem igual a você nesse mundo, meu amor. Amo cada detalhezinho seu!!! Você é INCRÍVELLLLLLL</h1>
+</footer>
+
+</body>
+</html>
